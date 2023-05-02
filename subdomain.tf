@@ -1,6 +1,12 @@
 resource "ns_autogen_subdomain" "autogen_subdomain" {
   subdomain_id = data.ns_workspace.this.block_id
-  env          = data.ns_workspace.this.env_name
+  env_id       = data.ns_workspace.this.env_id
+}
+
+locals {
+  subdomain_domain_name = ns_autogen_subdomain.autogen_subdomain.domain_name
+  subdomain_dns_name    = ns_autogen_subdomain.autogen_subdomain.dns_name
+  subdomain_fqdn        = ns_autogen_subdomain.autogen_subdomain.fqdn
 }
 
 resource "google_dns_managed_zone" "this" {
@@ -9,8 +15,8 @@ resource "google_dns_managed_zone" "this" {
   labels   = { for k, v in data.ns_workspace.this.tags : lower(k) => lower(v) }
 }
 
-resource "ns_autogen_subdomain_delegation" "to_aws" {
+resource "ns_autogen_subdomain_delegation" "to_gcp" {
   subdomain_id = data.ns_workspace.this.block_id
-  env          = data.ns_workspace.this.env_name
+  env_id       = data.ns_workspace.this.env_id
   nameservers  = google_dns_managed_zone.this.name_servers
 }
