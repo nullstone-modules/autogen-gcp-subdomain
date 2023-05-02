@@ -5,7 +5,7 @@ resource "ns_autogen_subdomain" "autogen_subdomain" {
 
 locals {
   subdomain_domain_name = ns_autogen_subdomain.autogen_subdomain.domain_name
-  subdomain_dns_name    = ns_autogen_subdomain.autogen_subdomain.dns_name
+  subdomain_dns_name    = trimsuffix(ns_autogen_subdomain.autogen_subdomain.fqdn, ".")
   subdomain_fqdn        = ns_autogen_subdomain.autogen_subdomain.fqdn
 }
 

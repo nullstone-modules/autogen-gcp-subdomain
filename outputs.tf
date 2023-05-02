@@ -1,6 +1,6 @@
 output "name" {
   value       = local.subdomain_dns_name
-  description = "string ||| The name that precedes the domain name for the created subdomain."
+  description = "string ||| The name of the created subdomain. (Format: '{{dns_name}}.{{domain}}')"
 }
 
 output "fqdn" {
