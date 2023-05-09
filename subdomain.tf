@@ -9,10 +9,18 @@ locals {
   subdomain_fqdn        = ns_autogen_subdomain.autogen_subdomain.fqdn
 }
 
+resource "google_project_service" "dns" {
+  service                    = "dns.googleapis.com"
+  disable_dependent_services = false
+  disable_on_destroy         = false
+}
+
 resource "google_dns_managed_zone" "this" {
   name     = data.ns_workspace.this.block_ref
   dns_name = ns_autogen_subdomain.autogen_subdomain.fqdn
   labels   = { for k, v in data.ns_workspace.this.tags : lower(k) => lower(v) }
+
+  depends_on = [google_project_service.dns]
 }
 
 resource "ns_autogen_subdomain_delegation" "to_gcp" {
