@@ -18,7 +18,7 @@ resource "random_string" "resource_suffix" {
 }
 
 locals {
-  labels        = {for key, value in data.ns_workspace.this.tags : lower(key) => value}
+  labels        = { for key, value in data.ns_workspace.this.tags : lower(key) => value }
   block_ref     = data.ns_workspace.this.block_ref
   resource_name = "${local.block_ref}-${random_string.resource_suffix.result}"
 }
