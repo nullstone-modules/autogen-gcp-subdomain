@@ -1,3 +1,6 @@
+# 0.4.2 (Dec 14, 2024)
+* Enables certificate manager service in GCP project.
+
 # 0.4.1 (Dec 14, 2024)
 * Include `README.md` in published module.
 

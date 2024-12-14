@@ -10,6 +10,8 @@ module "cert" {
   subdomains = {
     (local.subdomain_name) = local.subdomain_zone_id
   }
+
+  depends_on = [google_project_service.cert-manager]
 }
 
 locals {
