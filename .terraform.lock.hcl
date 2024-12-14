@@ -50,7 +50,11 @@ provider "registry.terraform.io/hashicorp/random" {
 provider "registry.terraform.io/nullstone-io/ns" {
   version = "0.7.0"
   hashes = [
+    "h1:5BtUtojKGyc9lTq7Mmd5Va53b8sgLbK+vFuVRLy2v9s=",
+    "h1:5Qt0YSCZ46a1HgW284Yoj54EY68cZ1Gk3vVpBpvlNMY=",
     "h1:RN1sdfnqtprye/jOqvFrO49j/HX4ZEjiG35PC7pEVB8=",
+    "h1:SAMPAdwNmdaA9GScOAGF+qjWwJkeroFImguOxvcNzQs=",
+    "h1:tkL9VHk+zLOIj4gm4TPzctnA4nWjSRuD+URliYQPqbc=",
     "zh:1b1a2a63fb533c6b679bab2bfd9d02cd4fabbe3102c7fedd470f8f82be626acd",
     "zh:2d9d8adb26b1ba0448e184849b632fef4dc208bd95abdf61e51de87fecd91211",
     "zh:2f8558c2dd24ea2a9b27ccbe540877e7b65c98d6e83dc74c64a4cfa764ead6e6",
