@@ -1,16 +1,12 @@
 # autogen-gcp-subdomain
 
-Nullstone module creating a GCP Subdomain from a Nullstone-generated subdomain (e.g. `random-slug.nullstone.app`).
+Nullstone module to create a GCP-managed Subdomain hosted on Nullstone's `nullstone.app` domain.
 
-## Variables
+## Overview
 
-None
+This module creates a DNS Zone on Google Cloud DNS.
 
-## Outputs
-
-- `name: string` - The name that precedes the domain name for the created subdomain.
-- `fqdn: string` - The FQDN (fully-qualified domain name) for the created subdomain.
-- `zone_id: string` - The zone name of the GCP Managed DNS Zone for the created subdomain.
-- `nameservers: list(string)` - The list of nameservers of the GCP Managed DNS Zone for the created subdomain.
-- `domain_name: string` - The name of the root domain.
-- `domain_zone_id: string` - The zone ID of the root domain.
+By default, this module will create an SSL certificate using GCP Certificate Manager.
+This can be disabled by setting the variable `disable_certificate = true`.
+This certificate is created for Cloud CDNs and Load Balancing (most common use case).
+A certificate and certificate map are created and emitted as outputs for use to attach to a GCP Load Balancer.
