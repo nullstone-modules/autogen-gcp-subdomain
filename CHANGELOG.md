@@ -1,3 +1,6 @@
+# 0.4.4 (Dec 30, 2024)
+* Removed trailing `.` from `outputs.name`.
+
 # 0.4.3 (Dec 14, 2024)
 * Removed enabling of certificate manager service, it is now done in the cert module.
 

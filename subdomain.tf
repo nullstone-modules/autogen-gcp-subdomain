@@ -23,7 +23,7 @@ locals {
   // Format: projects/{{project}}/managedZones/{{name}}
   subdomain_zone_id = regex("^projects/[^/]+/managedZones/([^/]+)$", google_dns_managed_zone.this.id)[0]
 
-  subdomain_name        = google_dns_managed_zone.this.dns_name
+  subdomain_name        = trimsuffix(google_dns_managed_zone.this.dns_name, ".")
   subdomain_nameservers = [for ns in google_dns_managed_zone.this.name_servers : trimsuffix(ns, ".")]
 }
 
