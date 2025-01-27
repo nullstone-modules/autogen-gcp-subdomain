@@ -10,7 +10,7 @@ locals {
 }
 
 resource "google_dns_managed_zone" "this" {
-  name     = data.ns_workspace.this.block_ref
+  name     = local.resource_name
   dns_name = local.fqdn
   labels   = { for k, v in data.ns_workspace.this.tags : lower(k) => lower(v) }
 

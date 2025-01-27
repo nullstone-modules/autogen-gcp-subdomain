@@ -1,3 +1,6 @@
+# 0.4.5 (Jan 27, 2025)
+* Add a random string to the end of the managed zone name so it is always unique.
+
 # 0.4.4 (Dec 30, 2024)
 * Removed trailing `.` from `outputs.name`.
 
